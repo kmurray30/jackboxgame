@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+  <title>The Daily Dirt</title>
+  <meta name="description" content="The Daily Dirt: a tabloid party game for friends. Join with the code on the TV.">
+  <meta name="theme-color" content="#161513">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/play.css">
+</head>
+<body class="paper-bg">
+  <header id="top">
+    <div class="brand">The Daily Dirt</div>
+    <div id="top-right"></div>
+  </header>
+  <div id="timer" class="timer" hidden><div class="fill"></div></div>
+  <main id="app"></main>
+  <div id="toast" hidden></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="/js/play.js"></script>
+</body>
+</html>

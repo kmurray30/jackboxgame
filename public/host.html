@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Daily Dirt — TV</title>
+  <meta name="description" content="The Daily Dirt: a tabloid party game. Put this screen on the TV; everyone else joins from their phones.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/host.css">
+</head>
+<body class="paper-bg">
+  <div id="timer" class="timer" hidden><div class="fill"></div><div class="num"></div></div>
+  <main id="stage" aria-live="polite"></main>
+  <footer id="footer"></footer>
+  <div id="reactions" aria-hidden="true"></div>
+  <div id="controls">
+    <button id="btn-skip" class="ctl" title="Skip ahead" hidden>Skip ▶</button>
+    <button id="btn-mute" class="ctl" title="Mute sounds">🔊</button>
+    <button id="btn-full" class="ctl" title="Fullscreen">⛶</button>
+  </div>
+  <div id="toast" hidden></div>
+  <div id="overlay" hidden></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="/js/host.js"></script>
+</body>
+</html>

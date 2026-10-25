@@ -1,0 +1,26 @@
+{
+  "name": "the-daily-dirt",
+  "version": "1.0.0",
+  "description": "The Daily Dirt — a Jackbox-style tabloid party game. Phones are controllers, the TV is the front page.",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "DD_TIMER_SCALE=0.3 node server/index.js",
+    "test": "node --test \"test/*.test.js\"",
+    "test:ui": "node test/ui.playwright.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "socket.io-client": "^4.8.1"
+  },
+  "license": "MIT",
+  "private": true
+}
