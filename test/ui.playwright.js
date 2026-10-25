@@ -48,11 +48,20 @@ async function main() {
     const ctx = await browser.newContext({ ...devices["iPhone 13"] });
     const page = await ctx.newPage();
     wire(page, name);
+    if (name === "Kyle") {
+      // Regression: a name typed before the socket finishes connecting must survive the handshake.
+      let held = false;
+      await page.route("**/socket.io/?*", async (route) => { if (!held) { held = true; await sleep(1500); } await route.continue(); });
+    }
     await page.goto(`${server.url}/?code=${code}`);
     await page.waitForSelector("#name");
     assert((await page.inputValue("#code")) === code, "code prefilled from URL");
     await page.fill("#name", name);
-    if (name === "Kyle") await shot(page, "02-phone-join");
+    if (name === "Kyle") {
+      await sleep(2500);
+      assert((await page.inputValue("#name")) === "Kyle", "typed name survived the socket handshake");
+      await shot(page, "02-phone-join");
+    }
     await page.click("button[type=submit]");
     await page.waitForSelector(".me .nm");
     phones.push({ name, page, ctx });

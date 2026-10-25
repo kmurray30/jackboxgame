@@ -41,7 +41,9 @@ socket.on("connect", () => {
       state = null; viewKey = null;
       renderJoin(code, res && res.error ? res.error : "");
     });
-  } else if (!state) {
+  } else if (!state && viewKey !== "join") {
+    // First connection with nothing on screen yet. If the join form is already showing,
+    // leave it alone so a half-typed name survives the socket handshake.
     renderJoin(urlCode, "");
   }
 });
